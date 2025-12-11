@@ -74,15 +74,7 @@ if (isset($_SESSION['user_id'])) {
             <i class="fa-solid fa-paw"></i> NaturaBox
         </a>
 
-       <form action="index.php" method="GET" class="search-bar">
-            <input type="text" name="q" placeholder="Cerca prodotti..." id="searchInput" class="search-input-field" 
-                   value="<?php echo isset($_GET['q']) ? htmlspecialchars($_GET['q']) : ''; ?>">
-            
-            <button type="submit"><i class="fa-solid fa-search"></i></button>
-            
-            <div id="searchResultsDropdown"></div>
-        </form>
-
+        
         <div class="user-actions">
             
             <?php if (isset($_SESSION['user_id'])): ?>
@@ -172,12 +164,21 @@ if (basename($_SERVER['PHP_SELF']) == 'index.php' && !isset($_GET['q'])):
         <div class="slider-overlay">
             <h1>Benvenuto su NaturaBox</h1>
             <p>Le migliori offerte e novità per i tuoi amici a quattro zampe!</p>
+            <form action="index.php" method="GET" class="search-bar">
+                <input type="text" name="q" placeholder="Cerca tra centinaia di prodotti..." id="searchInput" class="search-input-field" 
+                       value="<?php echo isset($_GET['q']) ? htmlspecialchars($_GET['q']) : ''; ?>">
+                
+                <button type="submit"><i class="fa-solid fa-search"></i></button>
+                
+                <div id="searchResultsDropdown"></div>
+            </form>
         </div>
         
         <div class="welcome-slider" id="imageSlider">
             <img src="img/slide1.jpg" alt="Offerta 1" class="slide-image">
             <img src="img/slide2.jpg" alt="Offerta 2" class="slide-image">
             <img src="img/slide3.jpg" alt="Offerta 3" class="slide-image">
+         <img src="img/slide4.jpg" alt="Offerta 4" class="slide-image">
         </div>
     </div>
 <?php endif; ?>

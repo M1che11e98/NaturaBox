@@ -112,8 +112,14 @@ header {
 .search-bar {
   display: flex;
   gap: 5px;
+  width: 100%;
+  position: relative;
+  z-index: 101;
+}
+
+.navbar .search-bar {
   flex-grow: 1;
-  max-width: 400px; /* Ma non più di 400px */
+  max-width: 400px;
   margin: 0 20px;
 }
 
@@ -121,8 +127,8 @@ header {
   width: 100%;
   padding: 8px 15px;
   border: 1px solid #ddd;
-  border-radius: 20px; /* Arrotonda molto i bordi (effetto pillola) */
-  outline: none; /* Rimuove il bordo blu di selezione del browser */
+  border-radius: 20px;
+  outline: none;
 }
 
 .search-bar button {
@@ -131,7 +137,52 @@ header {
   border: none;
   padding: 8px 15px;
   border-radius: 20px;
-  cursor: pointer; /* Cambia il cursore in una manina */
+  cursor: pointer;
+}
+
+.slider-overlay .search-bar {
+  margin-top: 25px;
+  max-width: 550px;
+}
+
+.slider-overlay .search-bar input {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  padding: 14px 25px;
+  font-size: 1rem;
+  border-radius: 50px;
+  backdrop-filter: blur(5px); /* Effetto vetro smerigliato per leggibilità */
+}
+
+.slider-overlay .search-bar input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.slider-overlay .search-bar button {
+  background: var(--accent);
+  color: var(--text-dark);
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+#searchResultsDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  min-width: 300px;
+  max-height: 300px;
+  overflow-y: auto;
+  background: var(--white);
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  display: none;
 }
 
 /* Area Utente (Carrello, Profilo) */
@@ -309,7 +360,7 @@ footer {
 .welcome-slider-container {
   position: relative; /* Container padre relativo */
   width: 100%;
-  height: 300px;
+  height: 88vh; /* Altezza 90% della viewport */
   margin-bottom: 30px;
   overflow: hidden; /* Nasconde le immagini che scorrono fuori dal box */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -357,6 +408,7 @@ footer {
 }
 
 .dynamic-title {
+  margin-top: 40px; /* Spazio sopra i titoli dinamici, specialmente dopo la search bar */
   margin-bottom: 20px;
   color: var(--primary);
 }
@@ -759,7 +811,7 @@ footer {
   }
 
   .welcome-slider-container {
-    height: 200px; /* Slider più basso su mobile */
+    height: 250px; /* Slider più basso su mobile */
   }
 
   .product-wrapper {
