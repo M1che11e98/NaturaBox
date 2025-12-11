@@ -53,7 +53,7 @@ include 'header.php'; // Carica logo, menu e apre la sessione
        Senza filtro: SELECT * FROM products WHERE 1=1 (Prende tutto)
        Con cat:      SELECT * FROM products WHERE 1=1 AND category_id = 5
     */
-    $sql = "SELECT * FROM products WHERE 1=1";
+    $sql = "SELECT * FROM products WHERE 1=1"; //c'è where 1=1 perchè dopo vengono aggiunte altre categorie e sql da errore
     
     // SE c'è un filtro categoria nell'URL...
     if (isset($_GET['cat'])) {
