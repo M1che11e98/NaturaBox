@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (sliderContainer) {
     /* querySelectorAll(".classe")
        Cerca TUTTI gli elementi con quella classe e li mette in una lista (simile a un array).
-       Qui prendiamo tutte le immagini (slide 1, slide 2, slide 3).
+       Qui prendiamo tutte le immagini (slide 1, slide 2, slide 3). CIAO SUCA LOOLOOLOLLOLLLLOLOLOLOLLOLOLO SONO SCEMO
     */
     const slides = sliderContainer.querySelectorAll(".slide-image");
 
