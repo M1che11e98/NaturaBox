@@ -325,32 +325,107 @@ header {
    6. FOOTER (Grid Layout)
    ==========================================================================
 */
+/* ==========================================================================
+   FOOTER MIGLIORATO - Distribuzione Omogenea
+   ========================================================================== */
 footer {
   background-color: var(--text-dark);
   color: white;
-  margin-top: auto; /* Spinge il footer in fondo alla pagina (grazie al flex column sul body) */
-  padding: 40px 0;
+  margin-top: auto;
+  padding: 50px 0 20px;
 }
 
 .footer-content {
   display: grid;
-  /* Grid Responsiva Automatica:
-     Crea colonne che sono larghe minimo 200px. 
-     Se c'è spazio, ne mette di più sulla stessa riga, se no va a capo.
-     È magico per il responsive design senza usare troppe @media queries.
-  */
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonne uguali */
+  gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  align-items: start; /* Allinea le sezioni in alto */
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-section h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+.footer-section p {
+  margin: 5px 0;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.footer-section a {
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.footer-section a:hover {
+  color: var(--accent);
+  padding-left: 5px;
+}
+
+.footer-section i {
+  margin-right: 8px;
+  color: var(--accent);
+  width: 20px;
+  display: inline-block;
 }
 
 .footer-bottom {
   text-align: center;
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px solid #444; /* Linea sottile grigia sopra il copyright */
+  margin-top: 40px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive per tablet */
+@media (max-width: 992px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonne su tablet */
+    gap: 30px;
+  }
+  
+  .footer-section:last-child {
+    grid-column: 1 / -1; /* L'ultima sezione occupa tutta la larghezza */
+    text-align: center;
+  }
+}
+
+/* Responsive per mobile */
+@media (max-width: 768px) {
+  footer {
+    padding: 40px 0 20px;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr; /* 1 colonna su mobile */
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .footer-section h4 {
+    display: block;
+    width: 100%;
+  }
+  
+  .footer-section:last-child {
+    grid-column: auto;
+  }
 }
 
 /* ==========================================================================
